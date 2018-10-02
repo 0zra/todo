@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Card = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-width: 0;
   word-wrap: break-word;
   background-clip: border-box;
@@ -12,7 +12,7 @@ const Card = styled.div`
   border-radius: 0.25rem;
   margin-bottom: 0.25rem;
   div {
-    flex: 1 1 auto;
+    flex: 0.75 1 auto;
     padding: 1.25rem;
     h2 {
       background-color: #343a40;
@@ -21,14 +21,25 @@ const Card = styled.div`
       margin-top: 0.5rem;
     }
   }
+  .StatusWraper {
+    flex: 0.25 1 auto;
+    zoom: 1;
+    transform: scale(1.5);
+    transform-origin: 0 0;
+  }
 `;
 
 const ItemCard = props => {
   const { item } = props;
   return (
     <Card>
-      <div className="CardBody">
-        <h2 className="Item">{item}</h2>
+      <div>
+        <h2>{item}</h2>
+      </div>
+      <div className="StatusWraper">
+        <label>
+          <input type="checkbox" /> Status
+        </label>
       </div>
     </Card>
   );
