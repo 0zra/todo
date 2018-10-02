@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import "./App.css";
 import { Subscribe } from "unstated";
 
 import ListContainer from "./state/ListContainer";
+
+import { StyledApp } from "./components/styledComponents/DefaultStyle";
 
 class App extends Component {
   state = {
@@ -20,8 +21,8 @@ class App extends Component {
     return (
       <Subscribe to={[ListContainer]}>
         {lista => (
-          <div className="App">
-            <header className="App-header py-auto">
+          <StyledApp>
+            <header className="App-header ">
               <h1 className="App-title">To Do</h1>
             </header>
             <div className="container">
@@ -52,7 +53,7 @@ class App extends Component {
                 </div>
               ))}
             </div>
-          </div>
+          </StyledApp>
         )}
       </Subscribe>
     );
