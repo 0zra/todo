@@ -11,10 +11,10 @@ const Card = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
   margin-bottom: 0.25rem;
-  .CardBody {
+  div {
     flex: 1 1 auto;
     padding: 1.25rem;
-    .Item {
+    h2 {
       background-color: #343a40;
       color: #fff;
       margin-bottom: 0.5rem;

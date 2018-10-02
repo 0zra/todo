@@ -10,7 +10,6 @@ class ListContainer extends Container {
     this.setState({ list: [...this.state.list, item] });
     return [...this.state.list, item];
   };
-  print = () => this.state.list;
 }
 
 export default ListContainer;

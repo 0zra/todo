@@ -24,7 +24,7 @@ class Input extends Component {
             <div
               className="btn btn-info btn-block"
               onClick={() => {
-                lista.add(this.onAdd()).then(rez => alert(rez));
+                lista.add(this.onAdd());
               }}
             >
               Add to the list
