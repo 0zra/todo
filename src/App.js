@@ -4,7 +4,10 @@ import { Subscribe } from "unstated";
 import ListContainer from "./state/ListContainer";
 
 import { StyledApp } from "./components/styledComponents/DefaultStyle";
+
 import ItemCard from "./components/ItemCard";
+
+import Input from "./components/Input";
 
 class App extends Component {
   state = {
@@ -14,6 +17,11 @@ class App extends Component {
     const val = document.getElementById("unos").value;
     document.getElementById("unos").value = "";
     return val;
+  };
+  update = ispis => {
+    this.setState({
+      ispis: ispis
+    });
   };
 
   render() {
@@ -27,6 +35,7 @@ class App extends Component {
               <h1 className="AppTitle">To Do</h1>
             </header>
             <div className="container">
+              <Input />
               <div className="form-group card p-3 mt-2">
                 <input
                   type="text"
@@ -45,6 +54,7 @@ class App extends Component {
                   Add to the list
                 </div>
               </div>
+              {ispis !== lista.print() ? this.update(lista.print()) : null}
 
               {ispis.map((item, index) => <ItemCard item={item} key={index} />)}
             </div>
