@@ -4,6 +4,7 @@ import { Subscribe } from "unstated";
 import ListContainer from "./state/ListContainer";
 
 import { StyledApp } from "./components/styledComponents/DefaultStyle";
+import ItemCard from "./components/ItemCard";
 
 class App extends Component {
   state = {
@@ -22,8 +23,8 @@ class App extends Component {
       <Subscribe to={[ListContainer]}>
         {lista => (
           <StyledApp>
-            <header className="App-header ">
-              <h1 className="App-title">To Do</h1>
+            <header className="AppHeader ">
+              <h1 className="AppTitle">To Do</h1>
             </header>
             <div className="container">
               <div className="form-group card p-3 mt-2">
@@ -45,13 +46,7 @@ class App extends Component {
                 </div>
               </div>
 
-              {ispis.map((item, index) => (
-                <div className="card mb-1" key={index}>
-                  <div className="card-body">
-                    <h2 className="bg-dark text-white my-2">{item}</h2>
-                  </div>
-                </div>
-              ))}
+              {ispis.map((item, index) => <ItemCard item={item} key={index} />)}
             </div>
           </StyledApp>
         )}
