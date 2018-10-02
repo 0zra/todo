@@ -7,8 +7,20 @@ class ListContainer extends Container {
   };
 
   add = async item => {
-    this.setState({ list: [...this.state.list, item] });
-    return [...this.state.list, item];
+    this.setState({
+      list: [...this.state.list, { item: item, status: false }]
+    });
+
+    return [...this.state.list, item]; //?
+  };
+  toggle = async (item, status) => {
+    alert("radi");
+    const helper = this.state.list.map(
+      obj => (obj.item === item ? { item: item, status: !status } : obj)
+    );
+    this.setState({
+      list: helper
+    });
   };
 }
 

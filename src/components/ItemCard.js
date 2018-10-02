@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+import { Subscribe } from "unstated";
+import ListContainer from "../state/ListContainer";
+
 const Card = styled.div`
   position: relative;
   display: flex;
@@ -30,16 +33,25 @@ const Card = styled.div`
 `;
 
 const ItemCard = props => {
-  const { item } = props;
+  const { item, status } = props.item;
   return (
     <Card>
       <div>
         <h2>{item}</h2>
       </div>
       <div className="StatusWraper">
-        <label>
-          <input type="checkbox" /> Status
-        </label>
+        <Subscribe to={[ListContainer]}>
+          {lista => (
+            <label>
+              <input
+                type="checkbox"
+                onChange={() => lista.toggle(item, status)}
+                checked={status}
+              />{" "}
+              Status
+            </label>
+          )}
+        </Subscribe>
       </div>
     </Card>
   );
