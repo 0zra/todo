@@ -42,6 +42,9 @@ const Card = styled.div`
       color: red;
     }
   }
+  .Botun {
+    ${"" /* TODO */} height: 2rem;
+  }
 `;
 
 const ItemCard = props => {
@@ -64,6 +67,11 @@ const ItemCard = props => {
               Status
             </label>
           </div>
+          {status ? (
+            <div className="Botun btn btn-outline-success m-3">
+              Move to done list <i class="fas fa-arrow-right" />
+            </div>
+          ) : null}
         </Card>
       )}
     </Subscribe>
