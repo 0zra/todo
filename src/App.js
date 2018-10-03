@@ -12,8 +12,8 @@ class App extends Component {
   render() {
     return (
       <StyledApp>
-        <header className="AppHeader ">
-          <h1 className="AppTitle">To Do</h1>
+        <header>
+          <h1>To Do</h1>
         </header>
         <div className="container">
           <Input />

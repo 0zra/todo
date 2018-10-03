@@ -5,8 +5,8 @@ import ListContainer from "../state/ListContainer";
 
 class Input extends Component {
   onAdd = () => {
-    const val = document.getElementById("unosT").value;
-    document.getElementById("unosT").value = "";
+    const val = document.getElementById("unos").value;
+    document.getElementById("unos").value = "";
     return val;
   };
 
@@ -17,7 +17,7 @@ class Input extends Component {
           <div className="form-group card p-3 mt-2">
             <input
               type="text"
-              id="unosT"
+              id="unos"
               className="form-control  mb-2"
               placeholder="Test"
             />
