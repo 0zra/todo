@@ -24,6 +24,15 @@ class ListContainer extends Container {
     });
     localStorage.setItem("state", JSON.stringify(this.state));
   };
+  remove = async item => {
+    const helper = this.state.list.filter(obj => obj.item != item);
+
+    alert(helper);
+    await this.setState({
+      list: helper
+    });
+    localStorage.setItem("state", JSON.stringify(this.state));
+  };
 }
 
 export default ListContainer;
