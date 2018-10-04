@@ -30,6 +30,7 @@ const Card = styled.div`
     transform: scale(1.5);
     transform-origin: 0 0;
   }
+
   i {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
@@ -41,9 +42,6 @@ const Card = styled.div`
     :hover {
       color: red;
     }
-  }
-  .Botun {
-    ${"" /* TODO */} height: 2rem;
   }
 `;
 
@@ -68,8 +66,8 @@ const ItemCard = props => {
             </label>
           </div>
           {status ? (
-            <div className="Botun btn btn-outline-success m-3">
-              Move to done list <i class="fas fa-arrow-right" />
+            <div className="Botun">
+              Move to done list <i className="fas fa-arrow-right" />
             </div>
           ) : null}
         </Card>

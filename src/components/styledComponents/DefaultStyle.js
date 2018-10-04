@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const StyledApp = styled.div`
   text-align: center;
-  .AppHeader {
+  header {
     height: 100px;
     background-color: #222;
     padding: 20px;
     color: white;
-    .AppTitle {
+    h1 {
       font-size: 2.5em;
     }
   }
