@@ -6,7 +6,8 @@ import ListContainer from "./state/ListContainer";
 import { StyledApp } from "./components/styledComponents/DefaultStyle";
 
 import ItemCard from "./components/ItemCard";
-import Input from "./components/Input";
+// import Input from "./components/Input";
+import FinalInput from "./components/FinalInput";
 
 class App extends Component {
   render() {
@@ -16,7 +17,8 @@ class App extends Component {
           <h1>To Do</h1>
         </header>
         <div className="container">
-          <Input />
+          <FinalInput />
+          {/* <Input /> */}
           <Subscribe to={[ListContainer]}>
             {lista =>
               lista.state.list.map((item, index) => (
