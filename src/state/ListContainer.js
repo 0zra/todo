@@ -2,25 +2,34 @@
 import { Container } from "unstated";
 
 class ListContainer extends Container {
-  state = {
-    list: []
-  };
+  state = JSON.parse(localStorage.getItem("state"))
+    ? JSON.parse(localStorage.getItem("state"))
+    : {
+        list: []
+      };
 
   add = async item => {
-    this.setState({
+    await this.setState({
       list: [...this.state.list, { item: item, status: false }]
     });
 
-    return [...this.state.list, item]; //?
+    localStorage.setItem("state", JSON.stringify(this.state));
   };
   toggle = async (item, status) => {
-    alert("radi");
     const helper = this.state.list.map(
       obj => (obj.item === item ? { item: item, status: !status } : obj)
     );
-    this.setState({
+    await this.setState({
       list: helper
     });
+    localStorage.setItem("state", JSON.stringify(this.state));
+  };
+  remove = async item => {
+    const helper = this.state.list.filter(obj => obj.item !== item);
+    await this.setState({
+      list: helper
+    });
+    localStorage.setItem("state", JSON.stringify(this.state));
   };
 }
 

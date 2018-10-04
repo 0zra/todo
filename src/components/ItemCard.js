@@ -15,7 +15,7 @@ const Card = styled.div`
   border-radius: 0.25rem;
   margin-bottom: 0.25rem;
   div {
-    flex: 0.75 1 auto;
+    flex: 0.6 1 auto;
     padding: 1.25rem;
     h2 {
       background-color: #343a40;
@@ -30,18 +30,32 @@ const Card = styled.div`
     transform: scale(1.5);
     transform-origin: 0 0;
   }
+
+  i {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    flex: 0 1 auto;
+    zoom: 1;
+    transform: scale(1.5);
+    transform-origin: 0 0;
+    color: grey;
+    :hover {
+      color: red;
+    }
+  }
 `;
 
 const ItemCard = props => {
   const { item, status } = props.item;
   return (
-    <Card>
-      <div>
-        <h2>{item}</h2>
-      </div>
-      <div className="StatusWraper">
-        <Subscribe to={[ListContainer]}>
-          {lista => (
+    <Subscribe to={[ListContainer]}>
+      {lista => (
+        <Card>
+          <i className="fas fa-times" onClick={() => lista.remove(item)} />
+          <div>
+            <h2>{item}</h2>
+          </div>
+          <div className="StatusWraper">
             <label>
               <input
                 type="checkbox"
@@ -50,10 +64,15 @@ const ItemCard = props => {
               />{" "}
               Status
             </label>
-          )}
-        </Subscribe>
-      </div>
-    </Card>
+          </div>
+          {status ? (
+            <div className="Botun">
+              Move to done list <i className="fas fa-arrow-right" />
+            </div>
+          ) : null}
+        </Card>
+      )}
+    </Subscribe>
   );
 };
 
