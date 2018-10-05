@@ -37,11 +37,8 @@ const FinalInput = props => (
                   <div>
                     <label htmlFor="input">
                       To do:
-                      <textarea {...input} id="input" placeholder="Make an App">
-                        {' '}
-                      </textarea>
+                      <input type="text" id="input" placeholder="Make an App" {...input} />
                     </label>
-
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}

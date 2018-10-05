@@ -9,20 +9,20 @@ class ListContainer extends Container {
     };
 
   add = async (item) => {
-    await this.setState(state => ({ list: [...state.list, { item, status: false }] }));
+    await this.setState(state => ({ list: [...state.list, { text: item, status: false }] }));
     localStorage.setItem('state', JSON.stringify(this.state));
   };
 
   toggle = async (item, status) => {
     await this.setState(state => ({
-      list: state.list.map(obj => (obj.item === item ? { item, status: !status } : obj)),
+      list: state.list.map(obj => (obj.item === item ? { text: item, status: !status } : obj)),
     }));
     localStorage.setItem('state', JSON.stringify(this.state));
   };
 
   remove = async (item) => {
     await this.setState(state => ({
-      list: state.list.filter(obj => obj.item !== item),
+      list: state.list.filter(obj => obj.text !== item),
     }));
     localStorage.setItem('state', JSON.stringify(this.state));
   };

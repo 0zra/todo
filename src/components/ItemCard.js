@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 import { Subscribe } from 'unstated';
 import ListContainer from '../state/ListContainer';
 
@@ -45,32 +45,39 @@ const Card = styled.div`
   }
 `;
 
-const ItemCard = (props) => {
-  const { item, status } = props.item;
-  return (
-    <Subscribe to={[ListContainer]}>
-      {lista => (
-        <Card>
-          <i className="fas fa-times" onClick={() => lista.remove(item)} />
-          <div>
-            <h2>{item}</h2>
-          </div>
-          <div className="StatusWraper">
-            <label>
-              <input type="checkbox" onChange={() => lista.toggle(item, status)} checked={status} />
-              {' '}
-              Status
-            </label>
-          </div>
-          {/* {status ? (
+const ItemCard = ({ text, status }) => (
+  <Subscribe to={[ListContainer]}>
+    {lista => (
+      <Card>
+        <i className="fas fa-times" onClick={() => lista.remove(text)} />
+        <div>
+          <h2>{text}</h2>
+        </div>
+        <div className="StatusWraper">
+          <label htmlFor="status">
+            <input
+              type="checkbox"
+              id="status"
+              onChange={() => lista.toggle(text, status)}
+              checked={status}
+            />
+            {' '}
+            Status
+          </label>
+        </div>
+        {/* {status ? (
             <div className="Botun">
               Move to done list <i className="fas fa-arrow-right" />
             </div>
           ) : null} */}
-        </Card>
-      )}
-    </Subscribe>
-  );
-};
+      </Card>
+    )}
+  </Subscribe>
+);
 
 export default ItemCard;
+
+ItemCard.propTypes = {
+  text: PropTypes.string.isRequired,
+  status: PropTypes.bool.isRequired,
+};

@@ -6,7 +6,7 @@ import {
 
 import ListContainer from './state/ListContainer';
 
-import StyledApp  from './components/styledComponents/DefaultStyle';
+import StyledApp from './components/styledComponents/DefaultStyle';
 
 import ItemCard from './components/ItemCard';
 // import Input from "./components/Input";
@@ -34,9 +34,9 @@ const App = () => (
           {/* <Input /> */}
           <Subscribe to={[ListContainer]}>
             {lista => lista.state.list.map((item, index) => (
-              <ItemCard item={item} key={index} />
+              <ItemCard text={item.text} status={item.status} key={index} />
             ))
-                }
+            }
           </Subscribe>
         </Switch>
       </div>

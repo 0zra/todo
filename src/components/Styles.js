@@ -70,14 +70,20 @@ export default styled.div`
       line-height: 2em;
       margin: 5px;
       & > label {
+        display: block;
         color: #333;
-        width: 110px;
+        width: 100%;
         font-size: 1em;
         line-height: 32px;
+        text-align: left;
+        & > input {
+          width: 100%;
+        }
       }
       & > input,
       & > select,
       & > textarea {
+        display: block;
         flex: 1;
         padding: 3px 5px;
         font-size: 1em;
@@ -85,7 +91,7 @@ export default styled.div`
         border: 1px solid #ccc;
         border-radius: 3px;
       }
-      & > input[type="checkbox"] {
+      & > input[type='checkbox'] {
         margin-top: 7px;
       }
       & > div {
@@ -112,10 +118,10 @@ export default styled.div`
     }
     button {
       margin: 0 10px;
-      &[type="submit"] {
+      &[type='submit'] {
         ${btnPrimary};
       }
-      &[type="button"] {
+      &[type='button'] {
         ${btnDefault};
       }
     }
