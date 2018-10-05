@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Subscribe } from "unstated";
+import React, { Component } from 'react';
+import { Subscribe } from 'unstated';
 
-import ListContainer from "../state/ListContainer";
+import ListContainer from '../state/ListContainer';
 
 class Input extends Component {
   onAdd = () => {
-    const val = document.getElementById("unos").value;
-    document.getElementById("unos").value = "";
+    const val = document.getElementById('unos').value;
+    document.getElementById('unos').value = '';
     return val;
   };
 

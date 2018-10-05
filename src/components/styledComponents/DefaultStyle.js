@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const StyledApp = styled.div`
+const StyledApp = styled.div`
   text-align: center;
   header {
     height: 100px;
@@ -8,7 +8,12 @@ export const StyledApp = styled.div`
     padding: 20px;
     color: white;
     h1 {
+      display: inline-block;
       font-size: 2.5em;
+    }
+    ul {
+      display: inline-block;
     }
   }
 `;
+export default StyledApp;

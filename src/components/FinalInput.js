@@ -1,9 +1,9 @@
-import React from "react";
-import Styles from "./Styles";
-import { Form, Field } from "react-final-form";
+import React from 'react';
+import { Form, Field } from 'react-final-form';
 
-import { Subscribe } from "unstated";
-import ListContainer from "../state/ListContainer";
+import { Subscribe } from 'unstated';
+import Styles from './Styles';
+import ListContainer from '../state/ListContainer';
 
 // const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 //
@@ -12,28 +12,33 @@ import ListContainer from "../state/ListContainer";
 //   window.alert(values.item);
 // };
 
-const FinalInput = () => (
+const FinalInput = props => (
   <Styles>
     <Subscribe to={[ListContainer]}>
       {lista => (
         <Form
-          onSubmit={async values => lista.add(values.item)}
-          validate={values => {
+          onSubmit={async (values) => {
+            lista.add(values.item);
+            props.history.push('/');
+          }}
+          validate={(values) => {
             const errors = {};
             if (!values.item) {
-              errors.item = "Required";
+              errors.item = 'Required';
             }
             return errors;
           }}
-          render={({ handleSubmit, reset, submitting, pristine, values }) => (
+          render={({
+            handleSubmit, reset, submitting, pristine,
+          }) => (
             <form onSubmit={handleSubmit}>
               <Field name="item">
                 {({ input, meta }) => (
                   <div>
-                    <label>To do:</label>
-                    <textarea {...input} placeholder="Make an App">
-                      {" "}
-                    </textarea>
+                    <label htmlFor="input">
+                      To do:
+                      <input type="text" id="input" placeholder="Make an App" {...input} />
+                    </label>
                     {meta.error && meta.touched && <span>{meta.error}</span>}
                   </div>
                 )}
@@ -43,11 +48,7 @@ const FinalInput = () => (
                 <button type="submit" disabled={submitting}>
                   Submit
                 </button>
-                <button
-                  type="button"
-                  onClick={reset}
-                  disabled={submitting || pristine}
-                >
+                <button type="button" onClick={reset} disabled={submitting || pristine}>
                   Reset
                 </button>
               </div>

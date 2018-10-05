@@ -1,35 +1,30 @@
-//import React, { Component } from "react"; ?
-import { Container } from "unstated";
+// import React, { Component } from "react"; ?
+import { Container } from 'unstated';
 
 class ListContainer extends Container {
-  state = JSON.parse(localStorage.getItem("state"))
-    ? JSON.parse(localStorage.getItem("state"))
+  state = JSON.parse(localStorage.getItem('state'))
+    ? JSON.parse(localStorage.getItem('state'))
     : {
-        list: []
-      };
+      list: [],
+    };
 
-  add = async item => {
-    await this.setState({
-      list: [...this.state.list, { item: item, status: false }]
-    });
-
-    localStorage.setItem("state", JSON.stringify(this.state));
+  add = async (item) => {
+    await this.setState(state => ({ list: [...state.list, { text: item, status: false }] }));
+    localStorage.setItem('state', JSON.stringify(this.state));
   };
+
   toggle = async (item, status) => {
-    const helper = this.state.list.map(
-      obj => (obj.item === item ? { item: item, status: !status } : obj)
-    );
-    await this.setState({
-      list: helper
-    });
-    localStorage.setItem("state", JSON.stringify(this.state));
+    await this.setState(state => ({
+      list: state.list.map(obj => (obj.item === item ? { text: item, status: !status } : obj)),
+    }));
+    localStorage.setItem('state', JSON.stringify(this.state));
   };
-  remove = async item => {
-    const helper = this.state.list.filter(obj => obj.item !== item);
-    await this.setState({
-      list: helper
-    });
-    localStorage.setItem("state", JSON.stringify(this.state));
+
+  remove = async (item) => {
+    await this.setState(state => ({
+      list: state.list.filter(obj => obj.text !== item),
+    }));
+    localStorage.setItem('state', JSON.stringify(this.state));
   };
 }
 
