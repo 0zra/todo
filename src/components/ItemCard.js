@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { Subscribe } from "unstated";
-import ListContainer from "../state/ListContainer";
+import { Subscribe } from 'unstated';
+import ListContainer from '../state/ListContainer';
 
 const Card = styled.div`
   position: relative;
@@ -45,7 +45,7 @@ const Card = styled.div`
   }
 `;
 
-const ItemCard = props => {
+const ItemCard = (props) => {
   const { item, status } = props.item;
   return (
     <Subscribe to={[ListContainer]}>
@@ -57,19 +57,16 @@ const ItemCard = props => {
           </div>
           <div className="StatusWraper">
             <label>
-              <input
-                type="checkbox"
-                onChange={() => lista.toggle(item, status)}
-                checked={status}
-              />{" "}
+              <input type="checkbox" onChange={() => lista.toggle(item, status)} checked={status} />
+              {' '}
               Status
             </label>
           </div>
-          {status ? (
+          {/* {status ? (
             <div className="Botun">
               Move to done list <i className="fas fa-arrow-right" />
             </div>
-          ) : null}
+          ) : null} */}
         </Card>
       )}
     </Subscribe>

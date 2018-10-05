@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { Provider } from 'unstated';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-import { Provider } from "unstated";
 
 ReactDOM.render(
   <Provider>
     <App />
   </Provider>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 registerServiceWorker();
